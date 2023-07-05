@@ -9,7 +9,7 @@ const { ExpressPeerServer } = require('peer');
 const peerServer = ExpressPeerServer(server, {
     debug: true
 })
-const cookieSession = require('cookie-session');
+const session = require('express-session');
 const { nextTick } = require('process')
 const passport = require('passport')
 require('./passport-setup');
@@ -17,10 +17,11 @@ require('./passport-setup');
 let USER_LIST = [];
 
 //middleware
-app.use(cookieSession({
-    name: 'session',
-    keys: ['key1', 'key2']
-}))
+app.use(session({
+    secret: '21ebf9f4bd00eabaab87313eb5ee831ec6b7ee921297e9b759d9dba92921fa38',
+    resave: false,
+    saveUninitialized: true
+  }));
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use('/peerjs', peerServer)
@@ -33,17 +34,26 @@ let ROOM_ID;
 
 app.get('/', (req, res) => {
     ROOM_ID = uuidV4();
+
     if (req.user) {
-        res.render(`home`, { ROOM_ID: ROOM_ID, username: req.user.displayName })
+        res.render(`vaishnavi`, { ROOM_ID: ROOM_ID, username: req.user.displayName })
     } else
-        res.send(`<h3>You are not logged in. Login to continue.</h3><br><a href="/auth/google">Login with google</a>`)
+    res.render('login');
+        // res.send(`<h3>You are not logged in. Login to continue.</h3><br><a href="/auth/google">Login with google</a>`)
 })
+
+
 
 //logging out and destroying the session
 app.get('/logout', (req, res) => {
-    req.logout();
-    req.session = null;
-    res.send('<h3>Left the meeting</h3><br><a href="/">Start a new meeting</a>');
+    req.logout(function(err) {
+        if (err) { return next(err); }
+        res.redirect('/');
+      });
+    // req.logout();
+    // req.session = null;
+    // res.send('<h3>Left the meeting</h3><br><a href="/">Start a new meeting</a>');
+    // res.redirect('/');
 })
 
 app.get('/whiteboard', (req, res) => {
@@ -139,4 +149,4 @@ app.get('/auth/google/callback',
         failureRedirect: '/auth/google/failure'
     }));
 
-server.listen(process.env.PORT || 3000)
+server.listen(3000)

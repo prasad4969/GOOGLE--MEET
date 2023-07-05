@@ -14,20 +14,12 @@
     "ejs": "^3.1.8",
     "express": "^4.18.1",
     "express-session": "^1.17.3",
-    "passport": "^0.5.3",
+    "passport": "^0.6.0",
     "passport-google-oauth2": "^0.2.0",
     "peer": "^0.6.1",
     "peerjs": "^1.4.6",
     "socket.io": "^4.5.1",
     "uuid": "^8.3.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Avichal1307/gmeet-clone.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Avichal1307/gmeet-clone/issues"
-  },
-  "homepage": "https://github.com/Avichal1307/gmeet-clone#readme",
-  "description": ""
+  }
+  
 }

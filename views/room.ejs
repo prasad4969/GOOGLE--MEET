@@ -47,6 +47,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    
     <div class="main">
       <div class="main__left">
         <div class="main__videos">
@@ -74,10 +75,10 @@
 
         <!-- <divs class="main__controls__block"> -->
 
-        <div class="main__controls__block">
+        <div class="main__controls__block align_items">
           <div
             onclick="muteUnmute()"
-            class="main__controls__button main__mute_button"
+            class="main__controls__button main__mute_button btn_color"
           >
             <span class="material-icons">mic</span>
 
@@ -86,28 +87,26 @@
           </div>
           <div
             onclick="playStop()"
-            class="main__controls__button main__video_button"
+            class="main__controls__button main__video_button btn_color"
           >
             <span class="material-symbols-outlined"> videocam </span>
             <!-- <i class="fa-solid fa-video"></i> -->
             <!-- <span>Stop Video </span> -->
           </div>
-          <div onclick="" class="main__controls__button">
-            <span class="material-symbols-outlined"> present_to_all </span>
+          <div onclick="" class="main__controls__button btn_color">
+            <span class="material-symbols-outlined "> present_to_all </span>
             <!-- <i class="fa-solid fa-display"></i> -->
             <!-- <span>Share Screen</span> -->
           </div>
-          <div class="main__controls__button">
+          <div class="main__controls__button btn_color">
             <!-- <i class="fa-solid fa-user-group"></i> -->
             <span class="material-symbols-outlined"> group </span>
             <!-- <span>Participants </span> -->
           </div>
-          <div onclick="showHideChat()" class="main__controls__button">
-            <!-- <i class="fa-solid fa-message"></i> -->
-            <span class="material-symbols-outlined"> chat </span>
-            <!-- <span>Chat</span> -->
-          </div>
-          <div class="main__controls__button">
+       
+         
+      
+          <div class="main__controls__button btn_color">
             <a
               class="main__whiteboard"
               href="/whiteboard"
@@ -119,22 +118,26 @@
               <!-- <span>Whiteboard</span> -->
             </a>
           </div>
-          <div class="main__controls__block">
-            <div
-              onclick="leaveMeet()"
-              class="main__controls__button"
-              style="background-color: #ea4335; padding: 12px 20px"
-            >
-              <span
-                class="material-icons"
-                style="font-size: 24px; color: white"
-              >
-                call_end
-              </span>
-              <!-- <span class="leave-meeting">Leave Meeting </span> -->
-            </div>
-          </div>
+
+          <div
+          onclick="leaveMeet()"
+          class="main__controls__button"
+          style="background-color: #ea4335; padding: 12px 20px"
+        >
+          <span
+            class="material-icons"
+            style="font-size: 24px; color: white"
+          >
+            call_end
+          </span>
+          <!-- <span class="leave-meeting">Leave Meeting </span> -->
         </div>
+          
+      
+          
+        </div>
+
+     
 
         <!-- </divs> -->
       </div>

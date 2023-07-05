@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google meeting</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+   
+ 
+  <!-- <link rel="stylesheet" href="styles.css" /> -->
+  <style>
+    .sign-in-img{
+        background-image: url('gmeet-clone\public\assets\home.jpg');
+    }
+    .wow{
+        height: 300px;
+        width: 600px;;
+    }
+  </style>
+    
+</head>
+
+
+<body style="padding-top: 3.5rem;">
+    <nav class="navbar navbar-expand-md fixed-top">
+       
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="30" height="50" viewBox="-13.1265 -18 113.763 108"><path fill="#00832d" d="M49.5 36l8.53 9.75 11.47 7.33 2-17.02-2-16.64-11.69 6.44z"/><path fill="#0066da" d="M0 51.5V66c0 3.315 2.685 6 6 6h14.5l3-10.96-3-9.54-9.95-3z"/><path fill="#e94235" d="M20.5 0L0 20.5l10.55 3 9.95-3 2.95-9.41z"/><path fill="#2684fc" d="M20.5 20.5H0v31h20.5z"/><path fill="#00ac47" d="M82.6 8.68L69.5 19.42v33.66l13.16 10.79c1.97 1.54 4.85.135 4.85-2.37V11c0-2.535-2.945-3.925-4.91-2.32zM49.5 36v15.5h-29V72h43c3.315 0 6-2.685 6-6V53.08z"/><path fill="#ffba00" d="M63.5 0h-43v20.5h29V36l20-16.57V6c0-3.315-2.685-6-6-6z"/></svg>
+        <a href="#" class="navbar-brand text-dark ">Google Meet</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                                 
+                 </li>
+                 <li class="nav-item">
+                               
+                 </li>
+                 <li class="nav-item">
+                                  
+                 </li>
+            </ul>
+            <ul class="navbar-nav mr-0">
+                <!-- <li class="nav-item sign-in display-center">
+                    <a href="#" class="nav-link">Sign in</a>               
+                 </li> -->
+                 <li class="nav-item">
+                    <button class="btn btn-outline-secondary btn-lg text-info font-weight-bold join-meeting">Join the meeting</button>              
+                 </li>
+                 <li class="nav-item">
+                    <button class="btn btn-info btn-lg text-light font-weight-bold new-meeting">Start a meeting</button>                 
+                 </li>
+            </ul>
+        </div>
+    </nav>
+
+ 
+    <div class="link__meeting " style="display: flex; justify-content: center;">
+        <form id="join-link">
+          <div class="input__icon">
+            <i style="position: absolute; margin-top:1px" class="fa-solid fa-keyboard"></i>
+            <input
+              class="input__link"
+              type="text"
+              id="code"
+              name="code"
+              placeholder="Enter a code"
+            />
+            <input type="submit" value="Join" class="join__button" />
+          </div>
+        </form>
+      </div>
+
+
+    <main>
+        <div class="jumbotron h-100 d-flex">
+            <div class="container w-50">
+             
+              
+                <h1 style="font-size: 3rem;">Video calls and meetings for everyone.</h1>
+                <p style="font-size: 20px;">Google Meet is a service available to everyone on every device. It can be used for safe and good quality video meetings and calls.</p>
+                <ul class="display-center justify-content-start">
+                    <li style="padding: 0;">
+                        <button onclick="newMeet('<%=ROOM_ID%>')"  class="btn btn-lg text-light font-weight-bold display-center new-meeting" style="background-color: #01796b;"> <i class="fa-solid fa-video"></i>New Meeting</button>
+                    </li>
+                    <!-- <li class="pl-2">
+                     
+                        <button class="btn btn-lg btn-outline-secondary text-dark font-weight-bold display-center " style="background-color: #ffffff;"><span class="material-icons mr-2">keyboard</span><input id="code" type="text" placeholder="Enter a code"  style="border: none;"      name="code" class="enter-code input__link"><input type="submit" value="Join" class="join__button" /></button>
+                    </li> -->
+               
+                  
+              
+                </ul>
+         
+            </div>
+       
+            
+            <div class="container w-50">
+                <img src="https://www.eprompto.com/assets/backend/uploads/media/article/27.jpg" class="wow"  alt="sign-in-img">
+            </div>
+        </div>
+ 
+    </main>
+    <footer class="container"><h6>Learn more about <span class="learn-more text-info">google meet</span></h6></footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" > </script>
+
+</body>
+<script
+src="https://kit.fontawesome.com/e28dbf8b03.js"
+crossorigin="anonymous"
+></script>
+  <script>
+    function newMeet(roomId) {
+      window.location.href = `/${roomId}`;
+    }
+    var form = document.getElementById("join-link");
+    form.addEventListener("submit", () => {
+      // console.log()
+      window.location.href = "/" + document.getElementById("code").value;
+      event.preventDefault();
+    });
+    var username = "<%= username %>";
+  </script>
+</html>
